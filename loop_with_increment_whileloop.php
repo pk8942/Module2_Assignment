@@ -1,13 +1,26 @@
 <?php
-$numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
-function isEven($number)
+function isEven($start, $end, $step): void
 {
-    while ($number % 2 == 0) {
-        return true;
-    }
-    return false;
-}
+    static $i;
+    $i = $start;
+    while ($i <= $end) {
 
-$evenNumbers = array_filter($numbers, "isEven");
-print_r($evenNumbers);
+        if ($i % 2 !== 0) {
+            echo $i += 1;
+            echo "\n";
+        }
+        $i -= 1;
+        $i += $step;
+
+    }
+
+}
+echo "Even numbers from 1 to 20\n";
+$start = 1;
+$end = 20;
+$step = 2;
+echo "" . isEven($start, $end, $step);
+
+//$evenNumbers = array_filter($numbers, "isEven");
+//print_r($evenNumbers);
